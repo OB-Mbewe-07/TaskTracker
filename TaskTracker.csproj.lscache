@@ -60,9 +60,12 @@ obj/Debug/net10.0/
  TaskTracker.AssemblyInfo.cs
  TaskTracker.GlobalUsings.g.cs
 src/domain/
+ TasksStatusChangedArgs.cs
  TaskStatus.cs
  TeamTask.cs
-src/Program.cs
+src/
+ Program.cs
+ services/AuditLogger.cs
 
 [metadataReferences]
 <DOTNET>/packs/Microsoft.AspNetCore.App.Ref/10.0.7/ref/net10.0/

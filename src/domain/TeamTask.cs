@@ -8,7 +8,7 @@ public class TeamTask
     public string? Description { get; set; }
     public string? AssignedTo { get; set; }
     public DateTime? DueDate { get; set; }
-    public TaskStatus Status { get; private set; } = TaskStatus.Backlog;
+    public TeamTaskStatus Status { get; private set; } = TeamTaskStatus.Backlog;
 
     public void Assign(string user)
     {
@@ -19,11 +19,25 @@ public class TeamTask
         AssignedTo = user;
     }
 
-    public void Transition(TaskStatus newStatus)
+    public void Transition(TeamTaskStatus newStatus)
     {
         if (newStatus == Status)
             return;
+
+        TeamTaskStatus oldStatus = Status;
         Status = newStatus;
+
+        StatusChanged?.Invoke(
+            this,
+            new TaskStatusChangedArgs
+            {
+                TaskId = Id,
+                Title = Title,
+                OldStatus = oldStatus,
+                NewStatus = newStatus,
+                AssignedTo = AssignedTo,
+            }
+        );
     }
 
     public bool IsOverdue
@@ -36,4 +50,5 @@ public class TeamTask
         }
     }
     public string Label => AssignedTo ?? "Unassigned";
+    public event EventHandler<TaskStatusChangedArgs>? StatusChanged;
 }

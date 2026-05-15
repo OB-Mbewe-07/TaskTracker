@@ -1,6 +1,6 @@
 namespace TaskTracker.Domain;
 
-public enum TaskStatus
+public enum TeamTaskStatus
 {
     Backlog,
     InProgress,
