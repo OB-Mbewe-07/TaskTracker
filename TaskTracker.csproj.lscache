@@ -59,6 +59,9 @@ obj/Debug/net10.0/
  .NETCoreApp,Version=v10.0.AssemblyAttributes.cs
  TaskTracker.AssemblyInfo.cs
  TaskTracker.GlobalUsings.g.cs
+src/domain/
+ TaskStatus.cs
+ TeamTask.cs
 src/Program.cs
 
 [metadataReferences]
