@@ -32,3 +32,6 @@
 /Users/oarabilembewe/Downloads/C#/TaskTracker/obj/Debug/net10.0/TaskTracker.genruntimeconfig.cache
 /Users/oarabilembewe/Downloads/C#/TaskTracker/obj/Debug/net10.0/ref/TaskTracker.dll
 /Users/oarabilembewe/Downloads/C#/TaskTracker/obj/Debug/net10.0/TaskTracker.sourcelink.json
+/Users/oarabilembewe/Downloads/C#/TaskTracker/bin/Debug/net10.0/Swashbuckle.AspNetCore.Swagger.dll
+/Users/oarabilembewe/Downloads/C#/TaskTracker/bin/Debug/net10.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+/Users/oarabilembewe/Downloads/C#/TaskTracker/bin/Debug/net10.0/Swashbuckle.AspNetCore.SwaggerUI.dll
