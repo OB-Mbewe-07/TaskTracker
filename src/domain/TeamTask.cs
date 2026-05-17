@@ -1,6 +1,8 @@
+using TaskTracker.Interfaces;
+
 namespace TaskTracker.Domain;
 
-public class TeamTask
+public class TeamTask : IAssignable, ITransitionable, ISchedulable
 {
     private static int _Id = 1;
     public int Id { get; } = _Id++;

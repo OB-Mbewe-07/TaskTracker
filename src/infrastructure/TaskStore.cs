@@ -1,8 +1,9 @@
 using TaskTracker.Domain;
+using TaskTracker.Interfaces;
 
 namespace TaskTracker.Infrastructure;
 
-public class TaskStore
+public class TaskStore : ITaskRepository
 {
     private List<TeamTask> _tasks = new List<TeamTask>();
 

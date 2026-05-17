@@ -66,6 +66,12 @@ src/domain/
 src/
  endpoints/TaskEndpoints.cs
  infrastructure/TaskStore.cs
+ interface/
+  IAssignable.cs
+  INotifier.cs
+  ISchedulable.cs
+  ITaskRepository.cs
+  ITransitionable.cs
  models/Requests.cs
  Program.cs
  services/AuditLogger.cs

@@ -75,7 +75,9 @@ public static class TaskEndpoints
 
                 if (task.Status == req.NewStatus)
                 {
-                    return Results.BadRequest(new { message = $"Task is already in {req.NewStatus} status" });
+                    return Results.BadRequest(
+                        new { message = $"Task is already in {req.NewStatus} status" }
+                    );
                 }
 
                 task.Transition(req.NewStatus);
