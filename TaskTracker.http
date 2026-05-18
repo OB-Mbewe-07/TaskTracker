@@ -1,0 +1,35 @@
+### Create a task
+POST http://localhost:5000/api/tasks
+Content-Type: application/json
+
+{
+    "title": "Fix login bug",
+    "description": "Users cant log in",
+    "assignedTo": null,
+    "dueDate": null
+}
+
+### Get all tasks
+GET http://localhost:5000/api/tasks
+
+### Get task by id
+GET http://localhost:5000/api/tasks/1
+
+### Assign a task
+PATCH http://localhost:5000/api/tasks/1/assign
+Content-Type: application/json
+
+{
+    "user": "Alice"
+}
+
+### Transition status
+PATCH http://localhost:5000/api/tasks/1/status
+Content-Type: application/json
+
+{
+    "newStatus": 1
+}
+
+### Get overdue tasks
+GET http://localhost:5000/api/tasks/overdue
