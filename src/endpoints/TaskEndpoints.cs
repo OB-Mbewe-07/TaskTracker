@@ -2,16 +2,17 @@ using TaskTracker.Domain;
 using TaskTracker.Infrastructure;
 using TaskTracker.Models;
 using TaskTracker.Services;
+using TaskTracker.Interfaces;
 
 namespace TaskTracker.Endpoints;
 
 public static class TaskEndpoints
 {
-    public static void Endpoints(this WebApplication app)
+    public static void Endpoints(this IEndpointRouteBuilder app)
     {
         app.MapPost(
             "/api/tasks",
-            (CreateTaskRequest request, TaskStore store, AuditLogger logger) =>
+            (CreateTaskRequest request, ITaskRepository store, AuditLogger logger) =>
             {
                 if (string.IsNullOrWhiteSpace(request.Title))
                 {
@@ -28,7 +29,7 @@ public static class TaskEndpoints
 
         app.MapGet(
             "/api/tasks",
-            (TaskStore store) =>
+            (ITaskRepository store) =>
             {
                 return Results.Ok(store.GetAllTasks());
             }
@@ -36,7 +37,7 @@ public static class TaskEndpoints
 
         app.MapGet(
             "/api/tasks/{id}",
-            (int id, TaskStore store) =>
+            (int id, ITaskRepository store) =>
             {
                 TeamTask? task = store.GetTaskById(id);
                 if (task == null)
@@ -50,7 +51,7 @@ public static class TaskEndpoints
 
         app.MapPatch(
             "/api/tasks/{id}/assign",
-            (int id, AssignRequest req, TaskStore store) =>
+            (int id, AssignRequest req, ITaskRepository store) =>
             {
                 TeamTask? task = store.GetTaskById(id);
                 if (task == null)
@@ -65,7 +66,7 @@ public static class TaskEndpoints
 
         app.MapPatch(
             "/api/tasks/{id}/status",
-            (int id, TransitionRequest req, TaskStore store) =>
+            (int id, TransitionRequest req, ITaskRepository store) =>
             {
                 TeamTask? task = store.GetTaskById(id);
                 if (task == null)
@@ -87,7 +88,7 @@ public static class TaskEndpoints
 
         app.MapGet(
             "/api/tasks/overdue",
-            (TaskStore store) =>
+            (ITaskRepository store) =>
             {
                 List<TeamTask> overdueTasks = store.GetAllTasks().Where(t => t.IsOverdue).ToList();
                 return Results.Ok(overdueTasks);
