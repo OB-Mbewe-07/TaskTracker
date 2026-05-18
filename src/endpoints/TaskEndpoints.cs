@@ -19,7 +19,14 @@ public static class TaskEndpoints
                     return Results.BadRequest(new { message = "Title cannot be empty" });
                 }
 
-                TeamTask task = new TeamTask { Title = request.Title };
+                TeamTask task = new TeamTask
+                {
+                    Title = request.Title,
+                    Description = request.Description,
+                    AssignedTo = request.AssignedTo,
+                    DueDate = request.DueDate
+                };
+                
                 task.StatusChanged += logger.OnStatusChanged;
                 store.AddTask(task);
 
