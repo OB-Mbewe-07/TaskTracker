@@ -3,8 +3,16 @@ using TaskTracker.Endpoints;
 using TaskTracker.Infrastructure;
 using TaskTracker.Interfaces;
 using TaskTracker.Services;
+using Serilog;
+
+Log.Logger = new LoggerConfiguration()
+    .WriteTo.Console()
+    .WriteTo.File("logs/tasktracker.txt", rollingInterval: RollingInterval.Day)
+    .CreateLogger();
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Host.UseSerilog();
 
 builder.Services.AddSingleton<ITaskRepository, TaskStore>();
 builder.Services.AddSingleton<AuditLogger>();
