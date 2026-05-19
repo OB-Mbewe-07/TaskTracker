@@ -7,7 +7,7 @@ public class AuditLogger
 {
     public List<string> Log { get; } = new List<string>();
 
-    public void OnStatusChanged(object? sender, TaskStatusChangedArgs args)
+    public void OnStatusChanged(object? sender, TaskStatusChangedArgs<TaskPriority> args)
     {
         string entry =
             $"[{DateTime.Now:yyyy-MM-dd HH:mm}] Task #{args.TaskId} \"{args.Title}\": {args.OldStatus} → {args.NewStatus}";
@@ -17,7 +17,7 @@ public class AuditLogger
 
 public class ConsoleNotifier : INotifier
 {
-    public void Notify(TaskStatusChangedArgs args)
+    public void Notify(TaskStatusChangedArgs<TaskPriority> args)
     {
         Console.WriteLine($"[Notify] \"{args.Title}\" is now {args.NewStatus}");
     }
@@ -32,7 +32,7 @@ public class AuditNotifier : INotifier
         _auditLogger = auditLogger;
     }
 
-    public void Notify(TaskStatusChangedArgs args)
+    public void Notify(TaskStatusChangedArgs<TaskPriority> args)
     {
         _auditLogger.OnStatusChanged(null, args);
     }
