@@ -1,0 +1,5 @@
+2026-05-20 14:34:50.510 +02:00 [INF] Now listening on: http://localhost:5230
+2026-05-20 14:34:57.991 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-05-20 14:34:57.992 +02:00 [INF] Hosting environment: Development
+2026-05-20 14:34:57.992 +02:00 [INF] Content root path: /Users/oarabilembewe/Downloads/C#/TaskTracker
+2026-05-20 22:46:14.652 +02:00 [INF] Application is shutting down...

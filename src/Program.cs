@@ -16,6 +16,7 @@ builder.Host.UseSerilog();
 
 builder.Services.AddSingleton<ITaskRepository<TeamTask<TaskPriority>>, TaskStore>();
 builder.Services.AddSingleton<AuditLogger>();
+builder.Services.AddSingleton<AuditLog>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 

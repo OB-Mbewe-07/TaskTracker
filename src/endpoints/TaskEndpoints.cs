@@ -3,6 +3,7 @@ using TaskTracker.Infrastructure;
 using TaskTracker.Models;
 using TaskTracker.Services;
 using TaskTracker.Interfaces;
+using TaskTracker.Utilities;
 
 namespace TaskTracker.Endpoints;
 
@@ -27,7 +28,7 @@ public static class TaskEndpoints
                     DueDate = request.DueDate,
                     Priority = request.Priority
                 };
-                
+
                 task.StatusChanged += logger.OnStatusChanged;
                 store.AddTask(task);
 
@@ -59,7 +60,7 @@ public static class TaskEndpoints
 
         app.MapPatch(
             "/api/tasks/{id}/assign",
-            (int id, AssignRequest req, ITaskRepository<TeamTask<TaskPriority>> store) =>
+            (int id, AssignRequest req, ITaskRepository<TeamTask<TaskPriority>> store, AuditLog auditLog) =>
             {
                 TeamTask<TaskPriority>? task = store.GetTaskById(id);
                 if (task == null)
@@ -67,14 +68,27 @@ public static class TaskEndpoints
                     return Results.NotFound(new { message = $"Task id: {id} not found" });
                 }
 
+                var before = new TeamTask<TaskPriority>
+                {
+                    Title = task.Title,
+                    AssignedTo = task.AssignedTo,
+                    DueDate = task.DueDate,
+                    Description = task.Description,
+                    Priority = task.Priority
+                };
+
                 task.Assign(req.User);
+
+                var changes = ChangeTracker.GetChanges(before, task);
+                auditLog.Record(task.Id, changes);
+
                 return Results.NoContent();
             }
         );
 
         app.MapPatch(
             "/api/tasks/{id}/status",
-            (int id, TransitionRequest req, ITaskRepository<TeamTask<TaskPriority>> store) =>
+            (int id, TransitionRequest req, ITaskRepository<TeamTask<TaskPriority>> store, AuditLog auditLog) =>
             {
                 TeamTask<TaskPriority>? task = store.GetTaskById(id);
                 if (task == null)
@@ -89,7 +103,20 @@ public static class TaskEndpoints
                     );
                 }
 
+                var before = new TeamTask<TaskPriority>
+                {
+                    Title = task.Title,
+                    AssignedTo = task.AssignedTo,
+                    DueDate = task.DueDate,
+                    Description = task.Description,
+                    Priority = task.Priority
+                };
+
                 task.Transition(req.NewStatus);
+
+                var changes = ChangeTracker.GetChanges(before, task);
+                auditLog.Record(task.Id, changes);
+
                 return Results.NoContent();
             }
         );
@@ -100,6 +127,15 @@ public static class TaskEndpoints
             {
                 List<TeamTask<TaskPriority>> overdueTasks = store.GetAllTasks().Where(t => t.IsOverdue).ToList();
                 return Results.Ok(overdueTasks);
+            }
+        );
+
+        app.MapGet(
+            "/api/tasks/{id}/audit",
+            (int id, AuditLog auditLog) =>
+            {
+                var history = auditLog.GetHistory(id);
+                return Results.Ok(history);
             }
         );
     }
