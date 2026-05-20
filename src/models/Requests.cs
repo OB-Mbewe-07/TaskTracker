@@ -6,7 +6,8 @@ public record CreateTaskRequest(
     string Title,
     string? Description,
     string? AssignedTo,
-    DateTime? DueDate
+    DateTime? DueDate,
+    TaskPriority Priority
 );
 
 public record AssignRequest(string User);

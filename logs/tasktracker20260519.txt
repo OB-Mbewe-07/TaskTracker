@@ -1,1 +1,119 @@
 2026-05-19 09:03:28.118 +02:00 [INF] Application is shutting down...
+2026-05-19 10:47:30.811 +02:00 [INF] Now listening on: http://localhost:5230
+2026-05-19 10:47:30.867 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-05-19 10:47:30.867 +02:00 [INF] Hosting environment: Development
+2026-05-19 10:47:30.867 +02:00 [INF] Content root path: /Users/oarabilembewe/Downloads/C#/TaskTracker
+2026-05-19 10:48:39.974 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5230/ - null null
+2026-05-19 10:48:40.383 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5230/ - 404 0 null 413.0491ms
+2026-05-19 10:48:40.392 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5230/, Response status code: 404
+2026-05-19 10:48:45.615 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5230/swagger/index.html - null null
+2026-05-19 10:48:45.711 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5230/swagger/index.html - 304 null null 96.515ms
+2026-05-19 10:48:45.777 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5230/swagger/index.css - null null
+2026-05-19 10:48:45.790 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5230/swagger/swagger-ui.css - null null
+2026-05-19 10:48:45.803 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5230/swagger/swagger-ui-bundle.js - null null
+2026-05-19 10:48:45.816 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5230/swagger/index.js - null null
+2026-05-19 10:48:45.817 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5230/swagger/index.js - 304 null null 0.7853ms
+2026-05-19 10:48:45.835 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5230/swagger/swagger-ui-standalone-preset.js - null null
+2026-05-19 10:48:45.861 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5230/swagger/swagger-ui.css - 304 null null 70.8027ms
+2026-05-19 10:48:45.861 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5230/swagger/index.css - 304 null null 83.5111ms
+2026-05-19 10:48:45.864 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5230/swagger/swagger-ui-standalone-preset.js - 304 null null 28.7296ms
+2026-05-19 10:48:45.871 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5230/swagger/swagger-ui-bundle.js - 304 null null 67.4337ms
+2026-05-19 10:48:46.105 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5230/swagger/v1/swagger.json - null null
+2026-05-19 10:48:46.120 +02:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2026-05-19 10:48:46.439 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5230/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 334.5977ms
+2026-05-19 10:48:57.013 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5230/api/tasks - null null
+2026-05-19 10:48:57.026 +02:00 [INF] Executing endpoint 'HTTP: GET /api/tasks'
+2026-05-19 10:48:57.039 +02:00 [INF] Released all tasks
+2026-05-19 10:48:57.047 +02:00 [INF] Setting HTTP status code 200.
+2026-05-19 10:48:57.054 +02:00 [INF] Writing value of type 'List`1' as Json.
+2026-05-19 10:48:57.060 +02:00 [INF] Executed endpoint 'HTTP: GET /api/tasks'
+2026-05-19 10:48:57.061 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5230/api/tasks - 200 null application/json; charset=utf-8 48.1324ms
+2026-05-19 10:57:17.879 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:5230/api/tasks - application/json 195
+2026-05-19 10:57:17.880 +02:00 [INF] Executing endpoint 'HTTP: POST /api/tasks'
+2026-05-19 10:57:17.906 +02:00 [INF] [Priority] "Low" Adding task 6 - Tell me what i should do after this
+2026-05-19 10:57:17.909 +02:00 [INF] Setting HTTP status code 201.
+2026-05-19 10:57:17.909 +02:00 [INF] Writing value of type 'TeamTask`1' as Json.
+2026-05-19 10:57:17.910 +02:00 [INF] Executed endpoint 'HTTP: POST /api/tasks'
+2026-05-19 10:57:17.911 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:5230/api/tasks - 201 null application/json; charset=utf-8 31.9054ms
+2026-05-19 10:57:43.561 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5230/api/tasks - null null
+2026-05-19 10:57:43.562 +02:00 [INF] Executing endpoint 'HTTP: GET /api/tasks'
+2026-05-19 10:57:43.562 +02:00 [INF] Released all tasks
+2026-05-19 10:57:43.562 +02:00 [INF] Setting HTTP status code 200.
+2026-05-19 10:57:43.563 +02:00 [INF] Writing value of type 'List`1' as Json.
+2026-05-19 10:57:43.566 +02:00 [INF] Executed endpoint 'HTTP: GET /api/tasks'
+2026-05-19 10:57:43.566 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5230/api/tasks - 200 null application/json; charset=utf-8 4.834ms
+2026-05-19 11:10:12.817 +02:00 [INF] Application is shutting down...
+2026-05-19 11:10:45.741 +02:00 [INF] Now listening on: http://localhost:5230
+2026-05-19 11:10:46.243 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-05-19 11:10:46.244 +02:00 [INF] Hosting environment: Development
+2026-05-19 11:10:46.244 +02:00 [INF] Content root path: /Users/oarabilembewe/Downloads/C#/TaskTracker
+2026-05-19 11:11:03.016 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5230/ - null null
+2026-05-19 11:11:03.240 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5230/ - 404 0 null 227.236ms
+2026-05-19 11:11:03.247 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5230/, Response status code: 404
+2026-05-19 11:11:08.698 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5230/swagger/index.html - null null
+2026-05-19 11:11:08.794 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5230/swagger/index.html - 304 null null 96.6913ms
+2026-05-19 11:11:08.893 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5230/swagger/swagger-ui.css - null null
+2026-05-19 11:11:08.907 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5230/swagger/index.css - null null
+2026-05-19 11:11:08.927 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5230/swagger/swagger-ui-bundle.js - null null
+2026-05-19 11:11:08.940 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5230/swagger/swagger-ui-standalone-preset.js - null null
+2026-05-19 11:11:08.954 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5230/swagger/index.js - null null
+2026-05-19 11:11:08.955 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5230/swagger/index.js - 304 null null 0.8548ms
+2026-05-19 11:11:08.970 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5230/swagger/index.css - 304 null null 62.5614ms
+2026-05-19 11:11:08.970 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5230/swagger/swagger-ui.css - 304 null null 77.311ms
+2026-05-19 11:11:08.971 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5230/swagger/swagger-ui-standalone-preset.js - 304 null null 30.8855ms
+2026-05-19 11:11:08.981 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5230/swagger/swagger-ui-bundle.js - 304 null null 54.1996ms
+2026-05-19 11:11:09.236 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5230/swagger/v1/swagger.json - null null
+2026-05-19 11:11:09.252 +02:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2026-05-19 11:11:09.484 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5230/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 248.2225ms
+2026-05-19 11:11:59.752 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:5230/api/tasks - application/json 178
+2026-05-19 11:11:59.768 +02:00 [INF] Executing endpoint 'HTTP: POST /api/tasks'
+2026-05-19 11:11:59.801 +02:00 [INF] [Priority] "Low" Adding task 6 - Lets get done with this task
+2026-05-19 11:11:59.806 +02:00 [INF] Setting HTTP status code 201.
+2026-05-19 11:11:59.809 +02:00 [INF] Writing value of type 'TeamTask`1' as Json.
+2026-05-19 11:11:59.817 +02:00 [INF] Executed endpoint 'HTTP: POST /api/tasks'
+2026-05-19 11:11:59.818 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:5230/api/tasks - 201 null application/json; charset=utf-8 65.5123ms
+2026-05-19 11:13:49.262 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5230/api/tasks - null null
+2026-05-19 11:13:49.263 +02:00 [INF] Executing endpoint 'HTTP: GET /api/tasks'
+2026-05-19 11:13:49.266 +02:00 [INF] Released all tasks
+2026-05-19 11:13:49.278 +02:00 [INF] Setting HTTP status code 200.
+2026-05-19 11:13:49.283 +02:00 [INF] Writing value of type 'List`1' as Json.
+2026-05-19 11:13:49.284 +02:00 [INF] Executed endpoint 'HTTP: GET /api/tasks'
+2026-05-19 11:13:49.285 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5230/api/tasks - 200 null application/json; charset=utf-8 23.1828ms
+2026-05-19 11:20:09.133 +02:00 [INF] Application is shutting down...
+2026-05-19 11:21:14.037 +02:00 [INF] Now listening on: http://localhost:5230
+2026-05-19 11:21:14.522 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-05-19 11:21:14.523 +02:00 [INF] Hosting environment: Development
+2026-05-19 11:21:14.523 +02:00 [INF] Content root path: /Users/oarabilembewe/Downloads/C#/TaskTracker
+2026-05-19 11:21:40.614 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5230/ - null null
+2026-05-19 11:21:40.843 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5230/ - 404 0 null 230.1245ms
+2026-05-19 11:21:40.849 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5230/, Response status code: 404
+2026-05-19 11:21:46.352 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5230/swagger/index.html - null null
+2026-05-19 11:21:46.449 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5230/swagger/index.html - 304 null null 97.9334ms
+2026-05-19 11:21:46.602 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5230/swagger/index.css - null null
+2026-05-19 11:21:46.626 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5230/swagger/index.js - null null
+2026-05-19 11:21:46.627 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5230/swagger/index.js - 304 null null 1.2244ms
+2026-05-19 11:21:46.644 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5230/swagger/swagger-ui-standalone-preset.js - null null
+2026-05-19 11:21:46.663 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5230/swagger/swagger-ui-bundle.js - null null
+2026-05-19 11:21:46.680 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5230/swagger/swagger-ui.css - null null
+2026-05-19 11:21:46.723 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5230/swagger/index.css - 304 null null 120.8408ms
+2026-05-19 11:21:46.723 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5230/swagger/swagger-ui-standalone-preset.js - 304 null null 78.9181ms
+2026-05-19 11:21:46.723 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5230/swagger/swagger-ui.css - 304 null null 43.1678ms
+2026-05-19 11:21:46.734 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5230/swagger/swagger-ui-bundle.js - 304 null null 70.5997ms
+2026-05-19 11:21:46.848 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5230/swagger/v1/swagger.json - null null
+2026-05-19 11:21:46.862 +02:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2026-05-19 11:21:47.100 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5230/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 252.3349ms
+2026-05-19 11:22:55.128 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:5230/api/tasks - application/json 229
+2026-05-19 11:22:55.141 +02:00 [INF] Executing endpoint 'HTTP: POST /api/tasks'
+2026-05-19 11:22:55.174 +02:00 [INF] [Priority] "Critical" Adding task 6 - akurvkdvkabsfjkasfb;lafv lfnvlnfr
+2026-05-19 11:22:55.181 +02:00 [INF] Setting HTTP status code 201.
+2026-05-19 11:22:55.184 +02:00 [INF] Writing value of type 'TeamTask`1' as Json.
+2026-05-19 11:22:55.191 +02:00 [INF] Executed endpoint 'HTTP: POST /api/tasks'
+2026-05-19 11:22:55.191 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:5230/api/tasks - 201 null application/json; charset=utf-8 63.2161ms
+2026-05-19 11:23:00.554 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5230/api/tasks - null null
+2026-05-19 11:23:00.555 +02:00 [INF] Executing endpoint 'HTTP: GET /api/tasks'
+2026-05-19 11:23:00.556 +02:00 [INF] Released all tasks
+2026-05-19 11:23:00.561 +02:00 [INF] Setting HTTP status code 200.
+2026-05-19 11:23:00.567 +02:00 [INF] Writing value of type 'List`1' as Json.
+2026-05-19 11:23:00.568 +02:00 [INF] Executed endpoint 'HTTP: GET /api/tasks'
+2026-05-19 11:23:00.569 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5230/api/tasks - 200 null application/json; charset=utf-8 14.7454ms
+2026-05-19 11:23:37.963 +02:00 [INF] Application is shutting down...

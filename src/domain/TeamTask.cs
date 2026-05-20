@@ -2,7 +2,8 @@ using TaskTracker.Interfaces;
 
 namespace TaskTracker.Domain;
 
-public class TeamTask : IAssignable, ITransitionable, ISchedulable
+public class TeamTask<TPriority>: IAssignable, ITransitionable, ISchedulable
+where TPriority: struct, Enum
 {
     private static int _Id = 1;
     public int Id { get; } = _Id++;
@@ -11,6 +12,7 @@ public class TeamTask : IAssignable, ITransitionable, ISchedulable
     public string? AssignedTo { get; set; }
     public DateTime? DueDate { get; set; }
     public TeamTaskStatus Status { get; private set; } = TeamTaskStatus.Backlog;
+    public TPriority Priority {get; set; }
 
     public void Assign(string user)
     {
@@ -20,6 +22,8 @@ public class TeamTask : IAssignable, ITransitionable, ISchedulable
         }
         AssignedTo = user;
     }
+
+    
 
     public void Transition(TeamTaskStatus newStatus)
     {
@@ -31,13 +35,14 @@ public class TeamTask : IAssignable, ITransitionable, ISchedulable
 
         StatusChanged?.Invoke(
             this,
-            new TaskStatusChangedArgs
+            new TaskStatusChangedArgs<TPriority>
             {
                 TaskId = Id,
                 Title = Title,
                 OldStatus = oldStatus,
                 NewStatus = newStatus,
                 AssignedTo = AssignedTo,
+                Priority = Priority
             }
         );
     }
@@ -52,5 +57,5 @@ public class TeamTask : IAssignable, ITransitionable, ISchedulable
         }
     }
     public string Label => AssignedTo ?? "Unassigned";
-    public event EventHandler<TaskStatusChangedArgs>? StatusChanged;
+    public event EventHandler<TaskStatusChangedArgs<TPriority>>? StatusChanged;
 }
