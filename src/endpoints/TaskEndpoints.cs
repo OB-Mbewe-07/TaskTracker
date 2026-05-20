@@ -12,19 +12,20 @@ public static class TaskEndpoints
     {
         app.MapPost(
             "/api/tasks",
-            (CreateTaskRequest request, ITaskRepository store, AuditLogger logger) =>
+            (CreateTaskRequest request, ITaskRepository<TeamTask<TaskPriority>> store, AuditLogger logger) =>
             {
                 if (string.IsNullOrWhiteSpace(request.Title))
                 {
                     return Results.BadRequest(new { message = "Title cannot be empty" });
                 }
 
-                TeamTask task = new TeamTask
+                TeamTask<TaskPriority> task = new TeamTask<TaskPriority>
                 {
                     Title = request.Title,
                     Description = request.Description,
                     AssignedTo = request.AssignedTo,
-                    DueDate = request.DueDate
+                    DueDate = request.DueDate,
+                    Priority = request.Priority
                 };
                 
                 task.StatusChanged += logger.OnStatusChanged;
@@ -36,7 +37,7 @@ public static class TaskEndpoints
 
         app.MapGet(
             "/api/tasks",
-            (ITaskRepository store) =>
+            (ITaskRepository<TeamTask<TaskPriority>> store) =>
             {
                 return Results.Ok(store.GetAllTasks());
             }
@@ -44,9 +45,9 @@ public static class TaskEndpoints
 
         app.MapGet(
             "/api/tasks/{id}",
-            (int id, ITaskRepository store) =>
+            (int id, ITaskRepository<TeamTask<TaskPriority>> store) =>
             {
-                TeamTask? task = store.GetTaskById(id);
+                TeamTask<TaskPriority>? task = store.GetTaskById(id);
                 if (task == null)
                 {
                     return Results.NotFound(new { message = $"Task id: {id} not found" });
@@ -58,9 +59,9 @@ public static class TaskEndpoints
 
         app.MapPatch(
             "/api/tasks/{id}/assign",
-            (int id, AssignRequest req, ITaskRepository store) =>
+            (int id, AssignRequest req, ITaskRepository<TeamTask<TaskPriority>> store) =>
             {
-                TeamTask? task = store.GetTaskById(id);
+                TeamTask<TaskPriority>? task = store.GetTaskById(id);
                 if (task == null)
                 {
                     return Results.NotFound(new { message = $"Task id: {id} not found" });
@@ -73,9 +74,9 @@ public static class TaskEndpoints
 
         app.MapPatch(
             "/api/tasks/{id}/status",
-            (int id, TransitionRequest req, ITaskRepository store) =>
+            (int id, TransitionRequest req, ITaskRepository<TeamTask<TaskPriority>> store) =>
             {
-                TeamTask? task = store.GetTaskById(id);
+                TeamTask<TaskPriority>? task = store.GetTaskById(id);
                 if (task == null)
                 {
                     return Results.NotFound(new { message = $"Task id: {id} not found" });
@@ -95,9 +96,9 @@ public static class TaskEndpoints
 
         app.MapGet(
             "/api/tasks/overdue",
-            (ITaskRepository store) =>
+            (ITaskRepository<TeamTask<TaskPriority>> store) =>
             {
-                List<TeamTask> overdueTasks = store.GetAllTasks().Where(t => t.IsOverdue).ToList();
+                List<TeamTask<TaskPriority>> overdueTasks = store.GetAllTasks().Where(t => t.IsOverdue).ToList();
                 return Results.Ok(overdueTasks);
             }
         );

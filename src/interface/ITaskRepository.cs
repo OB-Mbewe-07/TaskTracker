@@ -1,10 +1,9 @@
 using TaskTracker.Domain;
-
 namespace TaskTracker.Interfaces;
 
-public interface ITaskRepository
+public interface ITaskRepository<TTask>
 {
-    List<TeamTask> GetAllTasks();
-    TeamTask? GetTaskById(int id);
-    void AddTask(TeamTask task);
+    List<TTask> GetAllTasks();
+    TTask? GetTaskById(int id);
+    void AddTask(TTask task);
 }
